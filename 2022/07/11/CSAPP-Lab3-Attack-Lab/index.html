@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="CSAPP lab3(Attack Lab)1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。">
+    <meta name="description" content="1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSAPP Lab3(Attack Lab)">
 <meta property="og:url" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/index.html">
 <meta property="og:site_name" content="洗衣机随想录">
-<meta property="og:description" content="CSAPP lab3(Attack Lab)1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。">
+<meta property="og:description" content="1时间：2022.7.5上午-2022.7.7上午  函数调用栈讲解首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/1.jpg">
 <meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/2.jpg">
@@ -49,7 +49,7 @@
 <meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/20.jpg">
 <meta property="og:image" content="http://example.com/2022/07/11/CSAPP-Lab3-Attack-Lab/21.jpg">
 <meta property="article:published_time" content="2022-07-11T12:50:40.000Z">
-<meta property="article:modified_time" content="2022-07-11T15:02:46.987Z">
+<meta property="article:modified_time" content="2022-07-12T23:56:41.273Z">
 <meta property="article:author" content="Xinyi">
 <meta property="article:tag" content="CSAPP">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSAPP-lab3-Attack-Lab"><span class="nav-number">1.</span> <span class="nav-text">CSAPP lab3(Attack Lab)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88%E8%AE%B2%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">函数调用栈讲解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB"><span class="nav-number">1.2.</span> <span class="nav-text">代码注入攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#level-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">level 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#level-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">level 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#level-3"><span class="nav-number">1.2.3.</span> <span class="nav-text">level 3</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROP-Return-Oriented-Programming-%E6%94%BB%E5%87%BB"><span class="nav-number">1.3.</span> <span class="nav-text">ROP(Return-Oriented Programming)攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#level-2-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">level 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#level-3-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">level 3</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88%E8%AE%B2%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">函数调用栈讲解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB"><span class="nav-number">2.</span> <span class="nav-text">代码注入攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#level-1"><span class="nav-number">2.1.</span> <span class="nav-text">level 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#level-2"><span class="nav-number">2.2.</span> <span class="nav-text">level 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#level-3"><span class="nav-number">2.3.</span> <span class="nav-text">level 3</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROP-Return-Oriented-Programming-%E6%94%BB%E5%87%BB"><span class="nav-number">3.</span> <span class="nav-text">ROP(Return-Oriented Programming)攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#level-2-1"><span class="nav-number">3.1.</span> <span class="nav-text">level 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#level-3-1"><span class="nav-number">3.2.</span> <span class="nav-text">level 3</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -230,9 +230,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-11 20:50:40 / 修改时间：23:02:46" itemprop="dateCreated datePublished" datetime="2022-07-11T20:50:40+08:00">2022-07-11</time>
+      <time title="创建时间：2022-07-11 20:50:40" itemprop="dateCreated datePublished" datetime="2022-07-11T20:50:40+08:00">2022-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-13 07:56:41" itemprop="dateModified" datetime="2022-07-13T07:56:41+08:00">2022-07-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,12 +260,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="CSAPP-lab3-Attack-Lab"><a href="#CSAPP-lab3-Attack-Lab" class="headerlink" title="CSAPP lab3(Attack Lab)"></a>CSAPP lab3(Attack Lab)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间：<span class="number">2022.7</span><span class="number">.5</span>上午<span class="number">-2022.7</span><span class="number">.7</span>上午</span><br></pre></td></tr></table></figure>
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间：<span class="number">2022.7</span><span class="number">.5</span>上午<span class="number">-2022.7</span><span class="number">.7</span>上午</span><br></pre></td></tr></table></figure>
 
 <h3 id="函数调用栈讲解"><a href="#函数调用栈讲解" class="headerlink" title="函数调用栈讲解"></a>函数调用栈讲解</h3><p>首先明白栈这个内存结构，它先入后出，同时进行push的时候地址是减小的，也就是说栈顶地址最小，栈底地址最大。在x86-64中采用栈指针寄存器%rsp指向栈顶，如下图所示。</p>
+<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/1.jpg"></p>
 <span id="more"></span>
 
-<p><img src="/2022/07/11/CSAPP-Lab3-Attack-Lab/1.jpg"></p>
 <p>假设初始rsp为红色，执行pushq src代码，进行<strong>入栈操作</strong>，红色变为蓝色：</p>
 <ol>
 <li>取出src的操作码</li>
